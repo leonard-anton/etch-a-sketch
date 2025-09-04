@@ -5,6 +5,14 @@ body{
     align-items: center;
 }
 
+h1{
+    margin:10px;
+}
+
+.changeSizeButton{
+    margin: 20px;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
