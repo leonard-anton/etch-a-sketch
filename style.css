@@ -16,7 +16,7 @@ h1{
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 384px; /*  (20px + 4px)  * 16 */
+    width: 960px;
 }
 
 .container div {
