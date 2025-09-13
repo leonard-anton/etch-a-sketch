@@ -1,8 +1,10 @@
 const container = document.querySelector(".container");
 
 const changeSizeButton = document.querySelector(".changeSizeButton")
-
+const blackBrushButton = document.querySelector(".blackBrushButton");
 const randomColorsButton = document.querySelector(".randomColorsButton");
+const eraserButton = document.querySelector(".eraserButton");
+
 
 let currentColor = "black";
 
@@ -17,7 +19,9 @@ changeSizeButton.addEventListener("click", () => {
     createGrid(pixelCount);
 })
 
+blackBrushButton.addEventListener("click", () => currentColor = "black");
 randomColorsButton.addEventListener("click", () => currentColor = "random");
+eraserButton.addEventListener("click", () => currentColor = "white");
 
 function getRandomColor() {
     const r = Math.floor(Math.random() * 256);
