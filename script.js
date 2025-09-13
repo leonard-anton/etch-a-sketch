@@ -2,6 +2,14 @@ const container = document.querySelector(".container");
 
 const changeSizeButton = document.querySelector(".changeSizeButton")
 
+const randomColorsButton = document.querySelector(".randomColorsButton");
+
+let currentColor = "black";
+
+let isDrawing = false;
+document.addEventListener("mousedown", () => isDrawing = true);
+document.addEventListener("mouseup", () => isDrawing = false);
+
 changeSizeButton.addEventListener("click", () => {
     let count = prompt("Enter grid size (max 100)");
     let pixelCount = Math.min(count, 100);
@@ -9,9 +17,15 @@ changeSizeButton.addEventListener("click", () => {
     createGrid(pixelCount);
 })
 
-let isDrawing = false;
-document.addEventListener("mousedown", () => isDrawing = true);
-document.addEventListener("mouseup", () => isDrawing = false);
+randomColorsButton.addEventListener("click", () => currentColor = "random");
+
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+
+    return `rgb(${r}, ${g}, ${b})`;
+}
 
 function createGrid(pixelCount) {
 
@@ -35,10 +49,10 @@ function draw() {
     squares.forEach(square => {
         square.addEventListener("mouseover", () => {
             if (isDrawing)
-                square.style.backgroundColor = "black";
+                square.style.backgroundColor = currentColor === "random" ? getRandomColor() : currentColor;
         })
 
-        square.addEventListener("mousedown", () => square.style.backgroundColor = "black");
+        square.addEventListener("mousedown", () => square.style.backgroundColor = currentColor === "random" ? getRandomColor() : currentColor);
     })
 }
 
