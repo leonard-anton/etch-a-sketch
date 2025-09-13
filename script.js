@@ -4,6 +4,7 @@ const changeSizeButton = document.querySelector(".changeSizeButton")
 const blackBrushButton = document.querySelector(".blackBrushButton");
 const randomColorsButton = document.querySelector(".randomColorsButton");
 const eraserButton = document.querySelector(".eraserButton");
+const clearButton = document.querySelector(".clearButton");
 
 
 let currentColor = "black";
@@ -22,6 +23,14 @@ changeSizeButton.addEventListener("click", () => {
 blackBrushButton.addEventListener("click", () => currentColor = "black");
 randomColorsButton.addEventListener("click", () => currentColor = "random");
 eraserButton.addEventListener("click", () => currentColor = "white");
+
+clearButton.addEventListener("click", () => {
+    const squares = container.querySelectorAll("div");
+
+    squares.forEach(square => {
+        square.style.backgroundColor = "white";
+    });
+})
 
 function getRandomColor() {
     const r = Math.floor(Math.random() * 256);
