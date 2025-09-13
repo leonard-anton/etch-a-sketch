@@ -19,6 +19,9 @@ function createGrid(pixelCount) {
     container.style.width = `${pixelCount * (squareSize + 2)}px`;
     for (let i = 1; i <= pixelCount * pixelCount; i++) {
         const square = document.createElement("div");
+
+        square.setAttribute("draggable", false);
+
         square.style.width = `${squareSize}px`;
         square.style.height = `${squareSize}px`;
         container.appendChild(square);
