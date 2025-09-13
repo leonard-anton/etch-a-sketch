@@ -4,19 +4,23 @@ const changeSizeButton = document.querySelector(".changeSizeButton")
 
 changeSizeButton.addEventListener("click", () => {
     let count = prompt("Enter grid size (max 100)");
-    let size = count;
+    let pixelCount = Math.min(count, 100);
     deleteGrid();
-    createGrid(size);
+    createGrid(pixelCount);
 })
 
 let isDrawing = false;
-
 document.addEventListener("mousedown", () => isDrawing = true);
 document.addEventListener("mouseup", () => isDrawing = false);
 
-function createGrid(size) {
-    for (let i = 1; i <= size * size; i++) {
+function createGrid(pixelCount) {
+
+    squareSize = 600 / pixelCount;
+    container.style.width = `${pixelCount * (squareSize + 2)}px`;
+    for (let i = 1; i <= pixelCount * pixelCount; i++) {
         const square = document.createElement("div");
+        square.style.width = `${squareSize}px`;
+        square.style.height = `${squareSize}px`;
         container.appendChild(square);
     }
     draw();

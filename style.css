@@ -1,26 +1,23 @@
-body{
+body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-h1{
-    margin:10px;
+h1 {
+    margin: 10px;
 }
 
-.changeSizeButton{
+.changeSizeButton {
     margin: 20px;
 }
 
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 960px;
 }
 
 .container div {
-    width: 20px;
-    height: 20px;
-    border: 2px solid black;
+    border: 1px solid black;
 }
